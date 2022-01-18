@@ -24,11 +24,11 @@
 | price                | integer    | null: false                   |
 | name                 | string     | null: false                   |
 | explanation          | text       | null: false                   |
-| category_id          | references | null: false foreign_key: tru  |
-| item_condition_id    | references | null: false foreign_key: true |
-| postage_player_id    | references | null: false foreign_key: true |
-| postage_area_id      | references | null: false foreign_key: true |
-| preparation_day_id   | references | null: false foreign_key: true |
+| category_id          | integer    | null: false                   |
+| item_condition_id    | integer    | null: false                   |
+| postage_player_id    | integer    | null: false                   |
+| postage_area_id      | integer    | null: false                   |
+| preparation_day_id   | integer    | null: false                   |
 | user                 | references | null: false foreign_key: true |
 
 ##アソシエーション
@@ -52,7 +52,7 @@
 |        Column        |    Type    |            Options            |
 | -------------------- | ---------- | ----------------------------- |
 | post_code            | string     | null: false                   |
-| postage-area_id      | references | null: false foreign_key: true |
+| postage-area_id      | integer    | null: false                   |
 | municipalities       | string     | null: false                   |
 | street_number        | string     | null: false                   |
 | building_name        | string     |                               |
