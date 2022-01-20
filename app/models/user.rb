@@ -21,4 +21,7 @@ class User < ApplicationRecord
             format: { with: /\A([ァ-ン]|ー)+\z/, message: 'には全角カタカナを使用してください' },
             presence: true
   validates :birth_day, presence: true
+
+  has_many :items
+  
 end
