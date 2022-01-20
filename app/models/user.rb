@@ -9,10 +9,10 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   
  validates :first_name,
-            format: { with: /\A([ぁ-んァ-ン一-龥]|ー)+\z/, message: 'には全角文字を使用してください'},
+            format: { with: /\A([ぁ-んァ-ン一-龥々]|ー)+\z/, message: 'には全角文字を使用してください'},
             presence: true
   validates :family_name,
-            format: { with: /\A([ぁ-んァ-ン一-龥]|ー)+\z/, message: 'には全角文字を使用してください'},
+            format: { with: /\A([ぁ-んァ-ン一-龥々]|ー)+\z/, message: 'には全角文字を使用してください'},
             presence: true
   validates :first_name_kana,
             format: { with: /\A([ァ-ン]|ー)+\z/, message: 'には全角カタカナを使用してください' },
