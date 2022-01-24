@@ -12,10 +12,10 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :preparation_day
 
-  with_options presence: true, format: { with: /\A[0-9]+\z/ } do
-    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
-                      presence: { message: "can't be blank" }
-  end
+  validates :price,
+   format: { with: /\A[0-9]+\z/ },
+   numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
+   presence: true
   validates :name, presence: true
   validates :explanation, presence: true
   validates :category_id, presence: true
