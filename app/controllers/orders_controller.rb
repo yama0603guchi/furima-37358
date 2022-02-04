@@ -1,8 +1,11 @@
 class OrdersController < ApplicationController
-
+  before_action :move_to_signed_in
   def index
     @order_address = OrderAddress.new
     @item = Item.find(params[:item_id])
+    if @item.user_id == current_user.id || @item.order != nil
+       redirect_to root_path
+      end
   end
 
   def create
@@ -30,5 +33,11 @@ class OrdersController < ApplicationController
       card: order_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def move_to_signed_in
+    unless user_signed_in?
+      redirect_to '/users/sign_in'
+    end
   end
 end
