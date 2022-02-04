@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :item_id,:user_id,:post_code,:postage_area_id,:municipalities,:street_number,:building_name,:telephone_number,:order_id
+  attr_accessor :item_id,:user_id,:post_code,:postage_area_id,:municipalities,:street_number,:building_name,:telephone_number,:order_id,:token
 
   #extend ActiveHash::Associations::ActiveRecordExtensions
   #belongs_to_active_hash :postage_area
@@ -15,6 +15,7 @@ class OrderAddress
             presence: true
   validates :user_id, presence: true
   validates :item_id, presence: true
+  validates :token, presence: true
   #validates :order_id, presence: true
 
   def save
