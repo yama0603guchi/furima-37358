@@ -7,8 +7,8 @@ RSpec.describe OrderAddress, type: :model do
     @item.image = fixture_file_upload('app/assets/images/flag.png')
     @item.save
     @order_address = FactoryBot.build(:order_address, user_id: @user.id, item_id: @item.id)
-    sleep 0.1 
-end
+    sleep 0.1
+  end
 
   describe '商品購入' do
     context '商品購入がうまくいく時' do
@@ -38,7 +38,7 @@ end
       it 'post_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
         @order_address.post_code = '1234567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Post code is invalid")
+        expect(@order_address.errors.full_messages).to include('Post code is invalid')
       end
       it 'postage_area_idが未選択だと購入出来ない' do
         @order_address.postage_area_id = '1'
@@ -63,7 +63,7 @@ end
       it 'telephone_numberに半角数字以外が含まれている場合購入出来ない' do
         @order_address.telephone_number = '０８０１２３４５６７８'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Telephone number is invalid")
+        expect(@order_address.errors.full_messages).to include('Telephone number is invalid')
       end
       it 'tokenが空では購入出来ない' do
         @order_address.token = nil
@@ -73,5 +73,3 @@ end
     end
   end
 end
-      
-
